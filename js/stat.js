@@ -24,17 +24,19 @@ window.renderStatistics = function (ctx, players, times) {
   ctx.fillText('Ура вы победили!', 120, 40);
   ctx.fillText('Список результатов:', 120, 60);
 
+  var getMaxElement = function (arr) {
+    var max = 0;
 
-  var max = -1;
-
-  for (var i = 0; i < times.length; i++) {
-    var time = times[i];
-    if (time > max) {
-      max = time;
+    for (var i = 0; i < arr.length; i++) {
+      var time = arr[i];
+      if (time > max) {
+        max = time;
+      }
     }
-  }
+    return max;
+  };
 
-  var step = -barWidth / max;
+  var step = -barWidth / getMaxElement(times);
 
   for (var j = 0; j < players.length; j++) {
     if (players[j] === 'Вы') {
