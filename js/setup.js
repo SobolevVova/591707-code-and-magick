@@ -12,9 +12,8 @@ document.querySelector('.setup-similar').classList.remove('hidden');
 
 var similarListElement = document.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template')
-
-.content
-.querySelector('.setup-similar-item');
+  .content
+  .querySelector('.setup-similar-item');
 
 var getRandomArrItem = function (arr) {
   var randomItem = arr[Math.floor(Math.random() * arr.length)];
