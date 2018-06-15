@@ -1,9 +1,9 @@
 'use strict';
 
 var WIZARD_NAMES = ['Иван', 'Юлия', 'Мария', 'Кристофор'];
-var WIZARD_SURNAME = ['да Марья', 'Топольницкая', 'Мирабела', 'Вальц'];
-var WIZARD_COAT_COLOR = ['rgb(241, 43, 107)', 'rgb(101, 137, 164)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)'];
-var WIZARD_EYES_COLOR = ['green', 'yellow', 'blue', 'red'];
+var WIZARD_SURNAMES = ['да Марья', 'Топольницкая', 'Мирабела', 'Вальц'];
+var WIZARD_COAT_COLORS = ['rgb(241, 43, 107)', 'rgb(101, 137, 164)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)'];
+var WIZARD_EYES_COLORS = ['green', 'yellow', 'blue', 'red'];
 
 var userDialog = document.querySelector('.setup');
 userDialog.classList.remove('hidden');
@@ -12,6 +12,7 @@ document.querySelector('.setup-similar').classList.remove('hidden');
 
 var similarListElement = document.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template')
+
 .content
 .querySelector('.setup-similar-item');
 
@@ -22,17 +23,17 @@ var getRandomArrItem = function (arr) {
 
 var wizards = [];
 
-var wizardsMagick = function () {
-  var magick = {
-    name: getRandomArrItem(WIZARD_NAMES) + ' ' + getRandomArrItem(WIZARD_SURNAME),
-    coatColor: getRandomArrItem(WIZARD_COAT_COLOR),
-    eyesColor: getRandomArrItem(WIZARD_EYES_COLOR)
+var renderWizard = function () {
+  var wizardElement = {
+    name: getRandomArrItem(WIZARD_NAMES) + ' ' + getRandomArrItem(WIZARD_SURNAMES),
+    coatColor: getRandomArrItem(WIZARD_COAT_COLORS),
+    eyesColor: getRandomArrItem(WIZARD_EYES_COLORS)
   };
-  return magick;
+  return wizardElement;
 };
 
 for (var i = 0; i < 4; i++) {
-  wizards[i] = wizardsMagick();
+  wizards[i] = renderWizard();
 }
 
 for (var j = 0; j < WIZARD_NAMES.length; j++) {
